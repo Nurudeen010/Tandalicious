@@ -1,0 +1,48 @@
+{% extends 'webpage/main.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block content %}
+    <div>
+        <div>
+            <br/>
+            <hr/>
+            <h1><strong>What we offer</strong></h1>
+            <br/>
+            <p>Tanda food offers varieties of food. We prepare food that are hygiene oriented and nutritious. Our food is sweet, maybe that is why they call us <strong>Tandalicious</strong></p>
+            <p>We have varieties of foods, amongs them are;</p>
+            <ul>
+                <li><strong>Stir Fry Pasta</strong></li>
+                <li><strong>Firewood Jollof Rice</strong></li>
+                <li><strong>Palm oil Porridge</strong></li>
+                <li><strong>Barbecue Turkey</strong></li>
+                <li><strong>Barbecue Chicken</strong></li>
+                <li><strong>Plantain</strong></li>
+                <li><strong>And many more..</strong></li>
+            </ul>
+        </div>
+        <br /><br>
+
+        <h2><strong>Watch Tanda in action here</strong></h2>
+        <br/>
+        <video id="watch" autoplay controls src="{% static 'videos/video1.mp4' %}">Watch</video>
+        <hr>
+        <h2>View our<strong> MENU </strong>here</h2>
+        <br/>
+        <img  width="450" src="{% static 'images/menu.jpg' %}">
+        <br><br/>
+        <h2>Enjoy the <strong>Gallery</strong></h2>
+        <span>
+            <img width="500" src="{% static 'images/spaghetti.jpg' %}">
+            <img width="500" src="{% static 'images/turkey.jpg' %}">
+        </span>
+       {% endblock %}
+</body>
+</html>

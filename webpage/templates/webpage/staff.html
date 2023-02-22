@@ -1,0 +1,47 @@
+{% extends 'webpage/main.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block content %}
+    <span>
+        <h3>Welcome <strong>{{user.username}}</strong></h3>
+        <a href="{% url 'logout' %}"><strong><h2>Log out</h2></strong></a>
+    </span>
+    <div>
+        <div>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Email</th>
+                    <th scope="col">Complaint Type</th>
+                    <th scope="col">Complaint Details</th>
+                    <th scope="col">Recommendation</th>
+                    <th scope="col">Date Created</th>
+                  </tr>
+                </thead>
+                {% for item in form %}
+                <tbody>
+                  <tr>
+                    <td>{{item.email}}</td>
+                    <td>{{item.complaintType}}</td>
+                    <td>{{item.complaintDetails}}</td>
+                    <td>{{item.recommendation}}</td>
+                    <td>{{item.date_created}}</td>
+                  </tr>
+                </tbody>
+                {% endfor %}
+              </table>
+        </div>
+</div>
+</div>
+
+{% endblock %}
+</body>
+</html>

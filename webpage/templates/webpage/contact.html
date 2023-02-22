@@ -1,0 +1,80 @@
+{% extends 'webpage/main.html' %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Contact</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+      integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    {% block content %}
+    <div class="container my-3 my-sm-5">
+      <h1 class="mb-sm-4 text-center">Contact</h1>
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <h4>Address:</h4>
+          <address>
+            <strong>Behind</strong><br />
+            OPH Hostel<br />
+            LUTH, Idi-Araba <br />
+            <abbr title="Telephone">T:</abbr>
+            <a href="tel:+2347051448836">07051448836</a><br />
+            <abbr title="Mail">M:</abbr>
+            <a href="mailto:tandaliciousfoods@gmail.com">tandaliciousfoods@gmail.com</a>
+          </address>
+        </div>
+        <div class="col-12 col-md-6">
+          <h4>Opening hours:</h4>
+          <p>
+            Sun-Friday:<span class="float-right">4pm to 10pm</span><br />
+            Saturday:<span class="float-right"> Off</span><br />
+          </p>
+        </div>
+      </div>
+        <div class="col-12 col-lg-6">
+          <h4>Where to find us:</h4>
+          <div class="embed embed-responsive-4by3">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1982.018597050784!2d3.3536948758375575!3d6.516976398815735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8c36da346b3b%3A0xdd292e4bf47378db!2sOph%20Medical%20Student%20Hostel!5e0!3m2!1sen!2sng!4v1677066510349!5m2!1sen!2sng"
+              width="600"
+              height="450"
+              frameborder="0"
+              style="border: 0;"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+      integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+      integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+      crossorigin="anonymous"
+    ></script>
+    {% endblock %}
+  </body>
+</html>
