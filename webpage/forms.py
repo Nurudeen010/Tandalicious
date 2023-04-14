@@ -13,14 +13,7 @@ Complaint_choices = (
     ('issue with staff', 'ISSUE WITH STAFF'),
     ('issue with food', 'ISSUE WITH FOOD'),
     ('both', 'BOTH'),
-) 
-
-
-class TindaForm(forms.Form):
-    email = forms.EmailField(max_length=254)
-    complaintType = forms.CharField(max_length=50)
-    complaintDetails = forms.CharField(max_length=300)
-    recommendation = forms.CharField(max_length=300)    
+)
 
 
 class NewStaffForm(UserCreationForm):

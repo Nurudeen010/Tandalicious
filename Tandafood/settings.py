@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure--!u_d93w99cys)^8z2x6dj-iz7ejm*s_(7=92af)rzl4q1s@84
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = ['.vercel.app', '127.0.0.1']
 
 
 # Application definition
@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'webpage',
+    'webpage', # My New Application
 
 ]
 
@@ -72,7 +72,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Tandafood.wsgi.application'
 
-
+ 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
@@ -83,6 +83,9 @@ DATABASES = {
     }
 }
 
+# Email Sending Engine created by me
+DEFAULT_FROM_EMAIL = "nurudeenolamide010@gmail.com"
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators

@@ -4,6 +4,8 @@ from .models import *
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
+from django.core.mail import send_mail, BadHeaderError
+from django.http import HttpResponse, HttpResponseRedirect
 
 
 def staffRegister(request):
@@ -63,10 +65,25 @@ def issue(request):
     if request.method == 'POST':
         form = TandaForm(request.POST)
         if form.is_valid():
-             form.save()
+            form.save()
+            email = form.cleaned_data['email']
+            complaintType = form.cleaned_data['complaintType']
+            complaintDetails = form.cleaned_data['complaintDetails']
+            recommendation = form.cleaned_data['recommendation']
+            
+            try:
+             send_mail(email,complaintType,complaintDetails, ["nurudeenolamide010gmail.com"] )
+            except BadHeaderError:
+             return HttpResponse("Invalid email address")
+            return redirect('success')
+
 
 
         return render(request, 'webpage/issue.html', {'form':form})
     else:
             form =TandaForm()
             return render(request, 'webpage/issue.html', {'form':form})
+    
+
+def successView(request):
+    return HttpResponse("Success! Thank you for your message.")
