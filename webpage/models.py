@@ -10,7 +10,7 @@ Complaint_choices = (
 class Tanda(models.Model):
     email = models.EmailField(max_length=254)
     complaintType = models.CharField(max_length=50, choices=Complaint_choices, default='issue with staff')
-    complaintDetails = models.TextField(default='lodge your complaint here')
+    complaintDetails = models.TextField(default='lodge your complaints here')
     recommendation = models.TextField(blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
 

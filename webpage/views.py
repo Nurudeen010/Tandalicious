@@ -11,12 +11,17 @@ from django.http import HttpResponse, HttpResponseRedirect
 def staffRegister(request):
     if request.method == 'POST' or None:
         form = NewStaffForm(request.POST)
-        if form.is_valid():
+        email = request.POST['email']
+        if User.objects.filter(email=email).exists():
+            messages.error(request, 'That email is already in use')
+        
+        elif form.is_valid():
             user = form.save()
             login(request, user)
-        messages.success(request, "you have registered successfully")
-        return redirect('home')
-    messages.error(request, "There was an error, please try again later")
+            messages.success(request, "you have registered successfully")
+            return redirect('staff')
+        else:
+            messages.error(request, "There was an error, please try again later")
     form = NewStaffForm()
     return render(request=request, template_name='webpage/register.html', context={'form': form})
 
