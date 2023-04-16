@@ -39,10 +39,33 @@
         <img  width="450" src="{% static 'images/menu.jpg' %}">
         <br><br/>
         <h2>Enjoy the <strong>Gallery</strong></h2>
-        <span>
-            <img width="500" src="{% static 'images/spaghetti.jpg' %}">
-            <img width="500" src="{% static 'images/turkey.jpg' %}">
-        </span>
+        <div class="row">
+            <div class="col-md-4">
+              <div class="thumbnail">
+                  <img src="{% static 'images/spaghetti.jpg' %}" alt="Lights" style="width:100%">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="thumbnail">
+                  <img src="{% static 'images/food1.jpg' %}" alt="Nature" style="width:100%">
+              </div>
+            </div>
+            <div class="col-md-4">
+                <div class="thumbnail">
+                    <img src="{% static 'images/food2.jpg' %}" alt="Fjords" style="width:100%">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="thumbnail">
+                    <img src="{% static 'images/food3.jpg' %}" alt="Fjords" style="width:100%">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="thumbnail">
+                    <img src="{% static 'images/turkey.jpg' %}" alt="Fjords" style="width:100%">
+                </div>
+              </div>
+              </div>
        {% endblock %}
 </body>
 </html>
