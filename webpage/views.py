@@ -4,8 +4,11 @@ from .models import *
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
-from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
+
 
 
 def staffRegister(request):
@@ -76,15 +79,18 @@ def issue(request):
             complaintDetails = form.cleaned_data['complaintDetails']
             recommendation = form.cleaned_data['recommendation']
             
-            try:
-             send_mail(email,complaintType,complaintDetails, ["nurudeenolamide010gmail.com"] )
-            except BadHeaderError:
-             return HttpResponse("Invalid email address")
-            return redirect('success')
+            subject = 'Thank You Buddy!'
+
+            sender = 'Tanda Food'
+            recipient = email
+            messages = 'Hello'
+            html_message = render_to_string('webpage/email_template.html', {'form_data': form.cleaned_data})
 
 
-
-        return render(request, 'webpage/issue.html', {'form':form})
+            send_mail(subject, strip_tags(messages), sender, [recipient], html_message=html_message)
+        
+        #return render(request, 'webpage/issue.html', {'form':form})
+        return redirect('success')
     else:
             form =TandaForm()
             return render(request, 'webpage/issue.html', {'form':form})

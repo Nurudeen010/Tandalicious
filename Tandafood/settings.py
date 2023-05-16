@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure--!u_d93w99cys)^8z2x6dj-iz7ejm*s_(7=92af)rzl4q1s@84'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -41,6 +41,15 @@ INSTALLED_APPS = [
     'webpage', # My New Application
 
 ]
+# settings.py
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'nurudeenolamide010@gmail.com'  # Your Gmail account
+EMAIL_HOST_PASSWORD = 'chdpnwfzggkurqud'  # Your Gmail password
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'nurudeenolamide010@gmail.com'  # The email address you want to send emails from
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -83,9 +92,6 @@ DATABASES = {
     }
 }
 
-# Email Sending Engine created by me
-DEFAULT_FROM_EMAIL = "nurudeenolamide010@gmail.com"
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
