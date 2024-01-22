@@ -4,69 +4,60 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <href
+    <title>Tandalicious</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     {% block content %}
-    <div>
+    <div class="container mt-5">
         <div>
-            <br/>
-            <hr/>
-            <h1><strong>What we offer</strong></h1>
-            <br/>
-            <p>Tanda food offers varieties of food. We prepare food that are hygiene oriented and nutritious. Our food is sweet, maybe that is why they call us <strong>Tandalicious</strong></p>
-            <p>We have varieties of foods, amongs them are;</p>
-            <ul>
-                <li><strong>Stir Fry Pasta</strong></li>
-                <li><strong>Firewood Jollof Rice</strong></li>
-                <li><strong>Palm oil Porridge</strong></li>
-                <li><strong>Barbecue Turkey</strong></li>
-                <li><strong>Barbecue Chicken</strong></li>
-                <li><strong>Plantain</strong></li>
-                <li><strong>And many more..</strong></li>
+            <hr class="my-4">
+            <h1 class="display-4"><strong>What we offer</strong></h1>
+            <p class="lead">Tanda food offers a variety of delicious and nutritious dishes. Our food is known for its hygiene and taste, making it <strong>Tandalicious</strong>.</p>
+            <p class="lead">We have a diverse menu, including:</p>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>Stir Fry Pasta</strong></li>
+                <li class="list-group-item"><strong>Firewood Jollof Rice</strong></li>
+                <li class="list-group-item"><strong>Palm oil Porridge</strong></li>
+                <li class="list-group-item"><strong>Barbecue Turkey</strong></li>
+                <li class="list-group-item"><strong>Barbecue Chicken</strong></li>
+                <li class="list-group-item"><strong>Plantain</strong></li>
+                <li class="list-group-item"><strong>And many more...</strong></li>
             </ul>
         </div>
-        <br /><br>
+        <br>
+        
+        <h2 class="display-4"><strong>Watch Tanda in action here</strong></h2>
+        <div class="embed-responsive embed-responsive-16by9">
+            <video class="embed-responsive-item" autoplay controls>
+                <source src="{% static 'videos/video1.mp4' %}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <hr class="my-4">
+        
+        <h2 class="display-4">View our <strong>MENU</strong> here</h2>
+        <img class="img-fluid" src="{% static 'images/menu.jpg' %}" alt="Menu Image">
+        <br><br>
 
-        <h2><strong>Watch Tanda in action here</strong></h2>
-        <br/>
-        <video id="watch" autoplay controls src="{% static 'videos/video1.mp4' %}">Watch</video>
-        <hr>
-        <h2>View our<strong> MENU </strong>here</h2>
-        <br/>
-        <img  width="450" src="{% static 'images/menu.jpg' %}">
-        <br><br/>
-        <h2>Enjoy the <strong>Gallery</strong></h2>
+        <h2 class="display-4">Enjoy the <strong>Gallery</strong></h2>
         <div class="row">
+            {% for im in image_list %}
             <div class="col-md-4">
-              <div class="thumbnail">
-                  <img src="{% static 'images/spaghetti.jpg' %}" alt="Lights" style="width:100%">
-              </div>
+                <div class="card mb-4">
+                    <img src="{{ im.image.url }}" class="card-img-top custom-image" alt="Image">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ im.title }}</h5>
+                        <p class="card-text">{{ im.description }}</p>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-4">
-              <div class="thumbnail">
-                  <img src="{% static 'images/food1.jpg' %}" alt="Nature" style="width:100%">
-              </div>
-            </div>
-            <div class="col-md-4">
-                <div class="thumbnail">
-                    <img src="{% static 'images/food2.jpg' %}" alt="Fjords" style="width:100%">
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="thumbnail">
-                    <img src="{% static 'images/food3.jpg' %}" alt="Fjords" style="width:100%">
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="thumbnail">
-                    <img src="{% static 'images/turkey.jpg' %}" alt="Fjords" style="width:100%">
-                </div>
-              </div>
-              </div>
-       {% endblock %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
 </body>
 </html>
+

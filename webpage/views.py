@@ -4,7 +4,7 @@ from .models import *
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
@@ -56,7 +56,12 @@ def staffLogout(request):
 
                                         
 def home(request):
-    return render(request, 'webpage/home.html', context={})
+    image_list = Gallery.objects.all()
+    if image_list is not None:
+        return render(request, 'webpage/home.html', {'image_list': image_list})
+    else:
+        raise Http404("The Response is wrong")
+
 
 
 def contact(request):
@@ -98,3 +103,6 @@ def issue(request):
 
 def successView(request):
     return render(request, 'webpage/success.html')
+
+def gallery_list(request):
+    pass

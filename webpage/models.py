@@ -1,4 +1,6 @@
 from django.db import models
+from PIL import Image
+
 
 Complaint_choices = (
     ('issue with staff', 'ISSUE WITH STAFF'),
@@ -18,3 +20,10 @@ class Tanda(models.Model):
     def __str__(self):
         return self.email
 
+class Gallery(models.Model):
+    title = models.CharField(max_length=50, null=True)
+    image = models.ImageField(upload_to='gallery/', null=True)
+    description = models.TextField(max_length=1000, null=True)
+
+    def __str__(self):
+        return self.title

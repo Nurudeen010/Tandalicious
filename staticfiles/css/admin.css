@@ -1,0 +1,15 @@
+/* static/css/admin.css */
+#changelist-filter {
+    margin-bottom: 20px;
+}
+
+.related-widget-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+textarea {
+    width: 100%;
+}
+
+/* Add any additional styling as needed */

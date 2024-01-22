@@ -1,23 +1,24 @@
 {% extends 'webpage/main.html' %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    {% block content %}
-    <div>
-        <br/>
-        <h1><strong>Complaint Form</strong></h1>
-        <form method="POST" action="">
+
+{% block content %}
+    <div class="container mt-5">
+        <h1 class="display-4"><strong>Complaint Form</strong></h1>
+        <form method="POST" action="" class="my-4">
             {% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit"></button>
+            
+            {% for field in form %}
+                <div class="mb-3">
+                    <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+                    {{ field }}
+                    {% if field.errors %}
+                        <div class="invalid-feedback">
+                            {{ field.errors|join:", " }}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            
+            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
-    {% endblock %}
-</body>
-</html>
+{% endblock %}
