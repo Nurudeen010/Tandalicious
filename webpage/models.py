@@ -1,4 +1,5 @@
 from django.db import models
+from django import forms
 from PIL import Image
 
 
@@ -11,9 +12,9 @@ Complaint_choices = (
 
 class Tanda(models.Model):
     email = models.EmailField(max_length=40, blank=False)
-    complaintType = models.CharField(max_length=20, choices=Complaint_choices, default='issue with staff')
-    complaintDetails = models.TextField(max_length=80, default='lodge your complaints here')
-    recommendation = models.TextField( max_length=80, blank=True)
+    complaintType = models.CharField(max_length= 20, choices=Complaint_choices, default='issue with staff')
+    complaintDetails = models.TextField(max_length=200, default='Write your complaints here')
+    recommendation = models.TextField( max_length=200, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
 
 

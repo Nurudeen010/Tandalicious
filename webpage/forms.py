@@ -6,7 +6,13 @@ from .models import Tanda
 class TandaForm(forms.ModelForm):
     class Meta:
         model = Tanda
-        fields = ['email', 'complaintType', 'complaintDetails', 'recommendation']
+        fields = '__all__'
+        widgets = {
+            'email': forms.EmailInput(attrs={'class': 'my-custom-class'}),
+            'complaintDetails': forms.Textarea(attrs={'rows': 3, 'cols': 20}),
+            'recommendation': forms.Textarea(attrs={'rows': 3, 'cols': 20})
+
+        }
     
 
 Complaint_choices = (

@@ -4,7 +4,7 @@ from .models import *
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
-from django.http import HttpResponse, HttpResponseRedirect, Http404
+from django.http import Http404
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
@@ -78,11 +78,12 @@ def issue(request):
     if request.method == 'POST':
         form = TandaForm(request.POST)
         if form.is_valid():
-            form.save()
             email = form.cleaned_data['email']
             complaintType = form.cleaned_data['complaintType']
             complaintDetails = form.cleaned_data['complaintDetails']
             recommendation = form.cleaned_data['recommendation']
+
+            form.save()
             
             subject = 'Thank You Buddy!'
 
